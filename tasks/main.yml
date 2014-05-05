@@ -14,4 +14,4 @@
   command: chdir=/tmp/ creates=/tmp/ansible-tower-setup-{{ tower_version }} tar zxvf ansible-tower-setup-{{ tower_version }}.tar.gz
 
 - name: run the Tower installer
-  command: chdir=/tmp/ansible-tower-setup-{{tower_version}} creates=/etc/awx/settings.py ./setup.sh
+  command: chdir=/tmp/ansible-tower-setup-{{ tower_version }} creates=/etc/awx/settings.py ./setup.sh
