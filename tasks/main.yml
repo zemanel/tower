@@ -13,5 +13,8 @@
 - name: extract Tower
   command: chdir=/tmp/ creates=/tmp/ansible-tower-setup-{{ tower_version }} tar zxvf ansible-tower-setup-{{ tower_version }}.tar.gz
 
+- name: template the group_vars file
+  template: src=tower_group_vars.j2 dest=/tmp/ansible-tower-setup-{{ tower_version }} owner=root group=root mode=0644
+
 - name: run the Tower installer
   command: chdir=/tmp/ansible-tower-setup-{{ tower_version }} creates=/etc/awx/settings.py ./setup.sh
