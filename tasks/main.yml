@@ -5,8 +5,7 @@
   sudo: yes
 
 - name: download Tower setup
-  get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{tower_version}}.tar.gz
-    dest=/opt/ force=yes
+  get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{tower_version}}.tar.gz dest=/opt/ force=yes
 
 - name: extract Tower
   command: chdir=/opt/ creates=/opt/ansible-tower-setup-{{tower_version}} tar zxvf ansible-tower-setup-{{tower_version}}.tar.gz
