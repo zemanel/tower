@@ -1,7 +1,7 @@
 ---
 # tasks file for tower
 - name: install some useful packages 
-  apt: pkg={{ item }} state=latest
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=86400
   with_items: tower_dependencies
 
 - name: pip ansible install
