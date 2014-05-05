@@ -1,5 +1,15 @@
 ---
 # tasks file for tower
+- name: install some useful packages 
+  yum: name={{ item }} state=latest
+  with_items:
+  - git
+  - supervisor
+  - python-pip
+  - python-jinja2
+  - python-devel
+  - unzip
+
 - name: pip ansible install
   action: command pip install ansible
   sudo: yes
