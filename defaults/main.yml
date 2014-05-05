@@ -1,3 +1,10 @@
 ---
 # defaults file for tower
 tower_version: 1.4.10
+tower_dependencies:
+  - git
+  - python-dev
+  - python-pip
+  - build-essential
+  - supervisor
+  - unzip

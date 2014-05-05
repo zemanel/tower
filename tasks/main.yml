@@ -2,17 +2,10 @@
 # tasks file for tower
 - name: install some useful packages 
   apt: pkg={{ item }} state=latest
-  with_items:
-  - git
-  - supervisor
-  - python-pip
-  - python-jinja2
-  - python-dev
-  - unzip
+  with_items: tower_dependencies
 
 - name: pip ansible install
-  action: command pip install ansible
-  sudo: yes
+  pip: name=ansible
 
 - name: download Tower setup
   get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{tower_version}}.tar.gz dest=/opt/ force=yes
