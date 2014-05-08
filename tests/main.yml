@@ -1,5 +1,8 @@
 ---
 - hosts: localhost
   vars:
+    tower_pg_password: "postgrespass"
+    tower_admin_password: "towerpass"
+    tower_rabbitmq_password: "rabbitmqpass"
   roles:
     - Rackspace_Automation.tower
