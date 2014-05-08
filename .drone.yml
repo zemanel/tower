@@ -1,0 +1,4 @@
+image: linuturk/ubuntu-ansible
+script:
+  - ansible-galaxy install -r /var/cache/drone/src/github.com/rack-roles/tower/tests/roles.list
+  - ansible-playbook /var/cache/drone/src/github.com/rack-roles/base/tower/main.yml --connection=local
