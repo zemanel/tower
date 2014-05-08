@@ -1,6 +1,8 @@
 Role Name
 ========
 
+[![Build Status](https://drone-opsdev.rax.io/github.com/rack-roles/tower/status.svg?branch=master)](https://drone-opsdev.rax.io/github.com/rack-roles/tower)
+
 This role will install and configure various features of Ansible Tower.
 
 Requirements
