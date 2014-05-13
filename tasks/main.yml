@@ -8,7 +8,7 @@
   pip: name=ansible
 
 - name: download Tower setup
-  get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{ tower_version }}.tar.gz dest=/tmp/ force=yes
+  get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{ tower_version }}.tar.gz dest=/tmp/ force=yes sha256sum={{ tower_checksum }}
 
 - name: extract Tower
   command: chdir=/tmp/ creates=/tmp/ansible-tower-setup-{{ tower_version }} tar zxvf ansible-tower-setup-{{ tower_version }}.tar.gz
