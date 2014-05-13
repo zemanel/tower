@@ -1,12 +1,16 @@
 ---
 # tasks file for tower
 - name: check for necessary variables
-  fail: msg="{{ item }} has not been defined."
-  with_items:
-    - pg_password
-    - admin_password
-    - rabbitmq_password
-  when: {{ item }}|default(False) == False
+  fail: msg="pg_password has not been defined."
+  when: pg_password|default(False) == False
+
+- name: check for necessary variables
+  fail: msg="admin_password has not been defined."
+  when: admin_password|default(False) == False
+
+- name: check for necessary variables
+  fail: msg="rabbitmq_password has not been defined."
+  when: rabbitmq_password|default(False) == False
 
 - name: install some useful packages 
   apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=86400
