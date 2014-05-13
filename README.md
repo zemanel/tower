@@ -14,6 +14,8 @@ Role Variables
 --------------
 
 * `tower_version` Used to set the version of Tower to be installed.
+* `tower_checksum` sha256 checksum of the Tower installer that is downloaded.
+* `tower_force_setup` Force the role to run the setup command. (Default: False).
 * `tower_dependencies` Any dependent packages for the install process.
 
 Dependencies
