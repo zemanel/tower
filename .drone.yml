@@ -1,4 +1,4 @@
-image: linuturk/ubuntu-ansible
+image: linuturk/ubuntu-ansible:precise
 script:
   - git clone https://github.com/rack-roles/test.ping
   - bash test.ping/lint.sh
