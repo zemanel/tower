@@ -1,7 +1,7 @@
 ---
 # defaults file for tower
-tower_version: 1.4.10
-tower_checksum: d39340fe31c9955b97c110dd0ad62490d7192373dc1e6c900bb8bb9e4075f0d1
+tower_version: 1.4.11
+tower_checksum: 51e86db465ea5c13362a6e55b78c6b1e1da9fc814edbdbc64c2ceb20c915eb6b
 tower_dependencies:
   - git
   - python-dev
