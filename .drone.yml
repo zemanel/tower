@@ -1,5 +1,6 @@
 image: linuturk/ubuntu-ansible:precise
 script:
+  - apt-get install rsyslog -y
   - rsyslog &
   - git clone https://github.com/rack-roles/test.ping
   - bash test.ping/lint.sh
