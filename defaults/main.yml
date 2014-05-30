@@ -9,5 +9,5 @@ tower_dependencies:
   - build-essential
   - sudo
   - supervisor
-  - syslog
+  - syslog-ng
   - unzip
