@@ -1,5 +1,6 @@
 image: linuturk/ubuntu-ansible:precise
 script:
+  - apt-get install sudo -y
   - git clone https://github.com/rack-roles/test.ping
   - bash test.ping/lint.sh
   - ansible-galaxy install -r /var/cache/drone/src/github.com/rack-roles/tower/tests/roles.list
