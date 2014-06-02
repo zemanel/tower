@@ -2,6 +2,7 @@
 # defaults file for tower
 tower_version: 1.4.11
 tower_checksum: 51e86db465ea5c13362a6e55b78c6b1e1da9fc814edbdbc64c2ceb20c915eb6b
+tower_force_setup: False
 tower_dependencies:
   - build-essential
   - git
