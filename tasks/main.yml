@@ -32,3 +32,11 @@
 - name: run the Tower installer
   command: chdir=/tmp/ansible-tower-setup-{{ tower_version }} creates=/etc/awx/settings.py ./setup.sh
   when: tower_extracted|changed or tower_force_setup
+
+- name: override ssl cert
+  copy: src={{ tower_sslcert_file }} dest={{ tower_sslcert_location }} owner=root group=root mode=0644
+  when: tower_sslcert_file is defined
+
+- name: override ssl key
+  copy: src={{ tower_sslkey_file }} dest={{ tower_sslkey_location }} owner=root group=root mode=0644
+  when: tower_sslkey_file is defined
