@@ -46,3 +46,9 @@
   copy: src={{ tower_sslkey_file }} dest={{ tower_sslkey_location }} owner=root group=root mode=0644
   notify: restart apache
   when: tower_sslkey_file is defined
+
+- name: setup the galaxy roles list
+  template: src=roles.list.j2 dest=/etc/awx/roles.list owner=root group=root mode=0644
+
+- name: setup the roles install cronjob
+  template: src=tower_galaxy_cron.j2 dest=/etc/cron.d/tower_galaxy_roles owner=root group=root mode=0644
