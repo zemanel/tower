@@ -19,6 +19,10 @@
 - name: pip ansible install
   pip: name=ansible
 
+- name: pip install cloud dependencies
+  pip: name={{ item }}
+  with_items: tower_cloud_dependencies
+
 - name: download Tower setup
   get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{ tower_version }}.tar.gz dest=/tmp/ force=yes sha256sum={{ tower_checksum }}
 

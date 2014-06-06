@@ -12,5 +12,11 @@ tower_dependencies:
   - sudo
   - supervisor
   - unzip
+tower_cloud_dependencies:
+  - pyrax
+  - python-novaclient
+  - dopy
+  - boto
+  - apache-libcloud
 tower_sslcert_location: /etc/awx/awx.cert
 tower_sslkey_location: /etc/awx/awx.key
