@@ -1,3 +1,2 @@
-{{ ansible_managed }}
 # This automatically updates all Galaxy Roles on this server defined in roles.list
 0 0 * * * root ansible-galaxy install -r /etc/awx/roles.list --force > /dev/null 2>&1
