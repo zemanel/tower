@@ -20,4 +20,3 @@ tower_cloud_dependencies:
   - apache-libcloud
 tower_sslcert_location: /etc/awx/awx.cert
 tower_sslkey_location: /etc/awx/awx.key
-tower_galaxy_roles: []
