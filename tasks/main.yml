@@ -40,12 +40,12 @@
 - name: override ssl cert
   template: src=sslcert.j2 dest={{ tower_sslcert_location }} owner=root group=root mode=0644
   notify: restart apache
-  when: tower_sslcert_file is defined
+  when: tower_sslcert is defined
 
 - name: override ssl key
   template: src=sslkey.j2 dest={{ tower_sslkey_location }} owner=root group=root mode=0600
   notify: restart apache
-  when: tower_sslkey_file is defined
+  when: tower_sslkey is defined
 
 - name: setup the galaxy roles list
   template: src=roles.list.j2 dest=/etc/awx/roles.list owner=root group=root mode=0644
