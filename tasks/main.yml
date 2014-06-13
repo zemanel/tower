@@ -38,12 +38,12 @@
   when: tower_extracted|changed or tower_force_setup
 
 - name: override ssl cert
-  copy: content={{ tower_sslcert }} dest={{ tower_sslcert_location }} owner=root group=root mode=0644
+  template: src=sslcert.j2 dest={{ tower_sslcert_location }} owner=root group=root mode=0644
   notify: restart apache
   when: tower_sslcert_file is defined
 
 - name: override ssl key
-  copy: content={{ tower_sslkey }} dest={{ tower_sslkey_location }} owner=root group=root mode=0600
+  template: src=sslkey.j2 dest={{ tower_sslkey_location }} owner=root group=root mode=0600
   notify: restart apache
   when: tower_sslkey_file is defined
 
