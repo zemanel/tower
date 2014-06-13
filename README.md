@@ -17,8 +17,8 @@ Role Variables
 * `tower_checksum` sha256 checksum of the Tower installer that is downloaded.
 * `tower_force_setup` Force the role to run the setup command. (Default: False).
 * `tower_dependencies` Any dependent packages for the install process.
-* `tower_sslcert_file` Define this variable to point to your ssl certificate file. (Default: Tower generates a self signed certificate.)
-* `tower_sslkey_file` Define this variable to point to your ssl key file. (Default: Tower generates a self signed certificate.)
+* `tower_sslcert_file` Define this variable to contain your ssl certificate. (Default: Tower generates a self signed certificate.)
+* `tower_sslkey_file` Define this variable to contain your ssl key. (Default: Tower generates a self signed certificate.)
 * `tower_galaxy_roles` Defines a list of Galaxy Roles to be installed and updated through cron. (Default: [])
 
 Dependencies
