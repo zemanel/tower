@@ -30,27 +30,30 @@
   command: chdir=/tmp/ creates=/tmp/ansible-tower-setup-{{ tower_version }} tar zxvf ansible-tower-setup-{{ tower_version }}.tar.gz
   register: tower_extracted
 
-- name: template the group_vars file
-  template: src=tower_group_vars.j2 dest=/tmp/ansible-tower-setup-{{ tower_version }} owner=root group=root mode=0644
+- name: template the inventory file
+  template: src=inventory.j2 dest=/tmp/ansible-tower-setup-{{ tower_version }}/inventory owner=root group=root mode=0644
 
-- name: run the Tower installer
-  command: chdir=/tmp/ansible-tower-setup-{{ tower_version }} creates=/etc/awx/settings.py ./setup.sh
-  when: tower_extracted|changed or tower_force_setup
+- name: template the tower_setup_conf.yml file
+  template: src=tower_setup_conf.yml.j2 dest=/tmp/ansible-tower-setup-{{ tower_version }}/tower_setup_conf.yml owner=root group=root mode=0644
 
-- name: override ssl cert
-  template: src=sslcert.j2 dest={{ tower_sslcert_location }} owner=root group=root mode=0644
-  notify: restart apache
-  when: tower_sslcert is defined
-
-- name: override ssl key
-  template: src=sslkey.j2 dest={{ tower_sslkey_location }} owner=root group=root mode=0600
-  notify: restart apache
-  when: tower_sslkey is defined
-
-- name: setup the galaxy roles list
-  template: src=roles.list.j2 dest=/etc/awx/roles.list owner=root group=root mode=0644
-  when: tower_galaxy_roles is defined
-
-- name: setup the roles install cronjob
-  template: src=tower_galaxy_cron.j2 dest=/etc/cron.d/tower_galaxy_roles owner=root group=root mode=0644
-  when: tower_galaxy_roles is defined
+#- name: run the Tower installer
+#  command: chdir=/tmp/ansible-tower-setup-{{ tower_version }} creates=/etc/awx/settings.py ./setup.sh
+#  when: tower_extracted|changed or tower_force_setup
+#
+#- name: override ssl cert
+#  template: src=sslcert.j2 dest={{ tower_sslcert_location }} owner=root group=root mode=0644
+#  notify: restart apache
+#  when: tower_sslcert is defined
+#
+#- name: override ssl key
+#  template: src=sslkey.j2 dest={{ tower_sslkey_location }} owner=root group=root mode=0600
+#  notify: restart apache
+#  when: tower_sslkey is defined
+#
+#- name: setup the galaxy roles list
+#  template: src=roles.list.j2 dest=/etc/awx/roles.list owner=root group=root mode=0644
+#  when: tower_galaxy_roles is defined
+#
+#- name: setup the roles install cronjob
+#  template: src=tower_galaxy_cron.j2 dest=/etc/cron.d/tower_galaxy_roles owner=root group=root mode=0644
+#  when: tower_galaxy_roles is defined
